@@ -1,11 +1,8 @@
 import Foundation
-let individualScores = [75, 43, 103, 87, 12]
-var teamScore = 0
-for score in individualScores {
-    if score > 50 {
-        teamScore += 3
-    } else {
-        teamScore += 1
-    }
-}
-print(teamScore)
+let apples = 3
+let oranges = 5
+let appleSummary = "I have \(apples) apples."
+print(appleSummary)
+
+let fruitSummary = "I have \(apples + oranges) pieces of fruit."
+print(fruitSummary)

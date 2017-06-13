@@ -88,7 +88,6 @@
         <div class="item">
             <img src="image/Taylor Swift.jpg" alt="Taylor Swift">
             <div class="carousel-caption">
-                My favorite: Toylar Swift
             </div>
         </div>
     </div>

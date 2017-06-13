@@ -7,6 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Droid+Sans+Mono" rel="stylesheet">
+    <style>
+        code {
+            font-family: Droid Sans Mono;
+            font-size: 18px;
+            line-height: 1.5em;
+        }
+    </style>
 </head>
 <body>
 <form>
@@ -31,7 +39,7 @@
 <h1><span class="label label-primary">Welcome to Swift</span></h1>
 <?php
 include 'sql.php';
-$language = "zh-Hans"; // change language (English:'en' Chinese:'zh-Hans')
+$language = "en"; // change language (English:'en' Chinese:'zh-Hans')
 $sql = "select * from swiftbook where language = '{$language}' or type = 'x' order by chapter,sequence";
 $stmt = $pdo->prepare($sql);
 $stmt->execute([]);
@@ -59,7 +67,7 @@ while ($swiftbook = $stmt->fetchObject()) {
             echo '<div class="bs-callout bs-callout-primary">';
             echo "<p><code>{$swiftbook->content}</code></p>";
             echo '</div>';
-            echo "<button type='button' class='btn btn-primary' onclick=\"javascript:location.href='exercise.php?chapter={$swiftbook->chapter}&sequence={$swiftbook->sequence}'\">{$btnLabel} >></button>";
+            echo "<button type='button' class='btn btn-primary btn-lg' onclick=\"javascript:location.href='exercise.php?chapter={$swiftbook->chapter}&sequence={$swiftbook->sequence}'\">{$btnLabel} >></button>";
             echo '</div>';
             break;
         case 'n':

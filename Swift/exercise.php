@@ -16,7 +16,10 @@ if (@$swift || @isset($_POST['swift'])) {
         $swift = $_POST['swift'];
     }
     $fp = fopen('Code.Swift', "w+");
-    $swift = "import Foundation\n" . $swift; // Auto add 'import Foundation'
+    if (strpos($swift, 'import Foundation') === false) {
+        $swift = "import Foundation\n" . $swift; // Auto add 'import Foundation'
+    }
+
     fwrite($fp, $swift);
     fclose($fp);
     exec("/usr/bin/swift Code.Swift --username hyuntai --password WHTP@ssw0rd --non-interactive log -r HEAD --xml --verbose http://a51.unfuddle.com/svn/a51_activecollab/ 2>&1", $output);
@@ -31,34 +34,45 @@ if (@$swift || @isset($_POST['swift'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Droid+Sans+Mono" rel="stylesheet">
 </head>
-<body>
+<body style="font-family: Droid Sans Mono;">
+<!--Horizontal Menu-->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="GoToSwift.php">Go to Swift</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li><a href="index.php">Home</a></li>
+            <li class="active"><a href="exercise.php">Exercise</a></li>
+            <li><a href="https://developer.apple.com/documentation/swift">Library</a></li>
+            <li><a href="#">Page 3</a></li>
+        </ul>
+    </div>
+</nav>
 <form method="post" action="exercise.php">
 <br>
 <br>
 <br>
-<div class="container-fluit">
+<div class="container">
     <div class="row">
-        <div class="col-sm-5"
-             style="background-color: lightgray; min-height: 600px">
+        <div class="col-sm-6"
+             style="background-color: lightgray;">
             <div class="form-group">
-                <label for="comment">Code.Swift:</label>
-                <textarea class="form-control" rows="28" name="swift"><?php
+                <h3><span class="label label-default">Code.Swift</span></h3>
+                <textarea class="form-control" rows="19" name="swift" style="font-size:20px;color:green; background-color: black;"><?php
                     if (isset($swift)) {
-                        echo $swift;
+                        echo "$swift";
                     }
                     ?></textarea>
             </div>
         </div>
-        <div class="col-sm-2"
-             style="background-color: lightgray; min-height: 600px">
-            <input class="btn btn-primary" type="submit" value="Run">
-        </div>
-        <div class="col-sm-5"
-             style="background-color: lightgray; min-height: 600px">
+        <div class="col-sm-6"
+             style="background-color: lightgray;">
             <div class="form-group">
-                <label for="comment">Console:</label>
-                <textarea class="form-control" rows="28" name="console"><?php
+                <h3><span class="label label-default">Console</span></h3>
+                <textarea class="form-control" rows="19" name="console" style="font-size:20px;color:green; background-color: black;" readonly><?php
                     if (isset($output)) {
                         foreach ($output as $value) {
                             echo $value . "\n";
@@ -66,6 +80,10 @@ if (@$swift || @isset($_POST['swift'])) {
                     }
                     ?></textarea>
             </div>
+        </div>
+        <div class="col-sm-12"
+             style="background-color: lightgray; min-height: 600px">
+            <input class="btn btn-primary btn-block" type="submit" value="►">
         </div>
     </div>
 </div>
