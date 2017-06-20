@@ -45,6 +45,7 @@
         <li data-target="#carousel-example-generic" data-slide-to="4"></li>
         <li data-target="#carousel-example-generic" data-slide-to="5"></li>
         <li data-target="#carousel-example-generic" data-slide-to="6"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="7"></li>
     </ol>
 
     <!-- Wrapper for slides -->
@@ -86,10 +87,16 @@
             </div>
         </div>
         <div class="item">
+            <img src="image/LEGO EV3.jpg" alt="LEGO EV3">
+            <div class="carousel-caption">
+            </div>
+        </div>
+        <div class="item">
             <img src="image/Taylor Swift.jpg" alt="Taylor Swift">
             <div class="carousel-caption">
             </div>
         </div>
+
     </div>
 
     <!-- Controls -->

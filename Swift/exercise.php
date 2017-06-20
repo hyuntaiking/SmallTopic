@@ -51,7 +51,7 @@ if (@$swift || @isset($_POST['swift'])) {
         </ul>
     </div>
 </nav>
-<form method="post" action="exercise.php">
+<form method="post">
 <br>
 <br>
 <br>
@@ -83,7 +83,7 @@ if (@$swift || @isset($_POST['swift'])) {
         </div>
         <div class="col-sm-12"
              style="background-color: lightgray; min-height: 600px">
-            <input class="btn btn-primary btn-block" type="submit" value="►">
+            <button class="btn btn-primary btn-block" type="submit"><span class="glyphicon glyphicon-play" aria-hidden="true" style="font-size: 350%;"></span></button>
         </div>
     </div>
 </div>

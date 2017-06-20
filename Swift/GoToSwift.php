@@ -51,6 +51,7 @@ while ($swiftbook = $stmt->fetchObject()) {
             break;
         case 'p':
             echo "<p class='lead'>{$swiftbook->content}</p>";
+//            <span class='glyphicon glyphicon-edit' aria-hidden='true'></span>
             break;
         case 'x':
             echo '<div class="well">';
